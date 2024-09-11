@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mejor Equipo</title>
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Enlace a estilos CSS personalizados -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <!-- Encabezado -->
+    <header class="bg-dark text-white text-center py-5" style="background-image: url('{{ url_for('static', filename='stadium.jpg') }}'); background-size: cover;">
+        <h1>Mejor Equipo Generado</h1>
+    </header>
+
+    <!-- Contenido principal -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title text-center mb-4">Jugadores del Mejor Equipo</h4>
+                        <ul class="list-group">
+                            {% for jugador in equipo %}
+                                <li class="list-group-item">
+                                    <strong>{{ jugador[0] }} ({{ jugador[1] }})</strong><br>
+                                    <span>Agilidad: {{ habilidades[jugador[1]][jugador[0]]['Agilidad'] }}</span> |
+                                    <span>Velocidad: {{ habilidades[jugador[1]][jugador[0]]['Velocidad'] }}</span> |
+                                    <span>Técnica: {{ habilidades[jugador[1]][jugador[0]]['Técnica'] }}</span> |
+                                    <span>Mentalidad: {{ habilidades[jugador[1]][jugador[0]]['Mentalidad'] }}</span> |
+                                    <span>Precisión en los pases: {{ habilidades[jugador[1]][jugador[0]]['Precisión en los pases'] }}</span> |
+                                    <span>Control de balón: {{ habilidades[jugador[1]][jugador[0]]['Control de balón'] }}</span>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        <div class="text-center mt-4">
+                            <a href="/" class="btn btn-success">Volver a Generar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p>&copy; 2024 Desarrollado por Jhonatan cadena Hernandez</p>
+
+
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+body>
+</html>
+
